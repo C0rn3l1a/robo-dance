@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { catchError, first } from 'rxjs/operators';
 import { ErrorService } from '../error/error.service';
+import { Observable } from 'rxjs';
+import { RobotParams } from '../../models/robot/robot.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +18,8 @@ export class RobotService {
     private _error_handler: ErrorService,
   ) {}
 
-  get_all() {
-    return this._http_client.get(this.URL).pipe(
+  get_all(): Observable<RobotParams[] | null> {
+    return this._http_client.get<RobotParams[]>(this.URL).pipe(
       first(),
       catchError(error => this._error_handler.handle(error))
     )

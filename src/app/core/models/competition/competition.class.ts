@@ -5,7 +5,7 @@ import { Robot } from "../robot/robot.class";
 
 export class Competition {
 
-    private static TEAM_SIZE = 5;
+    static TEAM_SIZE = 5;
 
     teams: Robot[][];
     dance_ofs: DanceOf[] = [];
@@ -22,7 +22,8 @@ export class Competition {
         if(this.teams.length !== 2) throw new Error('Competitions are only allowed between 2 teams');
         for(let i = 0; i < Competition.TEAM_SIZE; i++) {
             const dance_of = new DanceOf({dancers:[this.teams[0][i], this.teams[1][i]]});
-            dance_of.
+            dance_of.determine_winner();
+            this.dance_ofs.push(dance_of);
         }
     }
 }

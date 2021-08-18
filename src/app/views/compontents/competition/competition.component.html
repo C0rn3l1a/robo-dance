@@ -1,0 +1,25 @@
+<div class="competition-container">
+    <div class="message-area">
+        <p>{{message}}</p>
+    </div>
+    <div class="divider"></div>
+    
+    <div class="loading" *ngIf="loading">
+        <img src="https://i.imgur.com/h9a32pC.gif">
+    </div>
+
+    <div class="robot-team" *ngIf="!loading">
+        <div class="team-name">
+            <input class="team-name-input" type="text" [placeholder]="input_placeholder" [(ngModel)]="teams[current_team].name">
+            <button class="cartooney-button" [disabled]="!teams[current_team].name.length" (click)="save_team()">Save!</button>
+        </div>
+        <div class="team-members">
+            <div class="member" *ngFor="let team_member of teams[current_team].members">
+                <img class="robot-avatar" [src]="team_member.avatar">
+                <span class="robot-name">{{team_member.name}}</span>
+
+            </div>
+        </div>
+    </div>
+
+</div>

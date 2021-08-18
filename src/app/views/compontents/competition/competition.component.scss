@@ -1,0 +1,116 @@
+$glass-white: rgba(255, 255, 255, 0.4);
+$cartooney-green: #94e189;
+
+.competition-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+
+    img {
+        width: 350px;
+        border-radius: .5rem;
+    }
+}
+
+
+.message-area {
+    p {
+        font-size: 1.1rem;
+        top: 2rem;
+        color: $glass-white;
+    }
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    border-radius: .5rem;
+    background: $glass-white;
+}
+
+.robot-team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.team-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-name-input {
+    background: $glass-white;
+    border: none;
+    margin: 1rem;
+    margin-top: 2rem;
+    border-top: solid 2px darken($glass-white, 15);
+    border-radius: .5rem;
+    height: 2.5rem;
+    width: 380px;
+    font-size: 1.5rem;
+    transition: .15s;
+    &:focus, &:focus-visible, &:active {
+        outline: none;
+        border-color: $cartooney-green;
+    }
+}
+
+.cartooney-button {
+    margin: 1rem 0;
+    margin-top: 2rem;
+    height: 2.5rem;
+    background: $cartooney-green;
+    border-radius: .5rem;
+    border: 0;
+    padding: .5rem 1rem;
+    font-weight: bolder;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin: auto;
+
+    .member {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: .5rem;
+
+        .robot-avatar {
+            width: 110px;
+            border-radius: 110px;
+            border: solid 2px $cartooney-green;
+            background: $glass-white;
+            backdrop-filter: blur(4px);
+        }
+        .robot-name {
+            color: $glass-white;
+            font-weight: bolder;
+        }
+    }
+}
+
+.robot-avatar {
+    width: 100px;
+}

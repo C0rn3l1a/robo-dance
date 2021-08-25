@@ -1,3 +1,4 @@
+import { SafeUrl } from "@angular/platform-browser";
 import { RobotParams } from "./robot.interface";
 
 export class Robot {
@@ -8,6 +9,7 @@ export class Robot {
     public experience: number;
     public outOfOrder: boolean;
     public avatar: string;
+    public avatar_base64?: SafeUrl;
 
     constructor(params: RobotParams) {
         this.id = params.id;

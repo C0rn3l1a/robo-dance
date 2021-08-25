@@ -1,0 +1,26 @@
+.team-name-input {
+    user-select: none;
+    background: var(--glass-white);
+    border: none;
+    margin: 1rem;
+    padding-left: .5rem;
+    margin-top: 2rem;
+    margin-left: 0;
+    border-top: solid 2px var(--glass-white);
+    border-radius: .5rem;
+    height: 2.5rem;
+    width: 300px;
+    font-size: 1.1rem;
+    transition: all ease-in-out .1s;
+    
+    &:focus, &:focus-visible, &:active {
+        outline: none;
+        border-color: var(--cartooney-green);
+    }
+
+    &:disabled, &.disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        background: var(--disabled-gray);
+    }
+}

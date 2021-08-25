@@ -1,0 +1,17 @@
+// Colors
+$space-black: hsl(273, 55%, 17%);
+$glass-black: hsla(0, 0%, 100%, 0.15);
+$glass-white: hsla(0, 0%, 100%, 0.7);
+$cartooney-green: hsl(112, 59%, 71%);
+
+$disabled-gray: hsl(0, 0%, 85%);
+
+
+:root {
+    --space-black: #{$space-black};
+    --glass-black: #{$glass-black};
+    --glass-white: #{$glass-white};
+    --cartooney-green: #{$cartooney-green};
+    
+    --disabled-gray: #{$disabled-gray};
+}

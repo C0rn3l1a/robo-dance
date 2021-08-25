@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'robo-dance';
   stars: any[] = [];
+  show_home_button: boolean = false;
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     for(let i = 0; i < Math.floor(10 + Math.random() * 50); i++) {
       let x = Math.floor(50 + (Math.random() * (window.innerWidth - 100)));
       let y = Math.floor(50 + (Math.random() * (window.innerHeight - 100)));
@@ -22,6 +26,17 @@ export class AppComponent {
         height: `${radius}px`,
       });
     }
+  }
+
+  ngOnInit(){ 
+    console.log({url: this.router.url});
+    this.router.events.subscribe(() => {
+      if(this.router.url === '/') {
+        this.show_home_button = false;
+      } else {
+        this.show_home_button = true;
+      }
+    })
   }
 
 }

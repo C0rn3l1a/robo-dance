@@ -7,3 +7,10 @@ export interface DanceOfParams {
     danced_at?: Date | null;
     dancers?: Robot[];
 }
+
+export interface DanceOfAPIResponse {
+    id: number;
+    winner: number;
+    loser: number;
+    dancedAt: string;
+}

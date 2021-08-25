@@ -4,20 +4,48 @@
     </div>
     <div class="divider"></div>
     
-    <div class="loading" *ngIf="loading">
+    <div class="loading" *ngIf="display === 'loading'">
         <img src="https://i.imgur.com/h9a32pC.gif">
     </div>
 
-    <div class="robot-team" *ngIf="!loading">
+    <div class="robot-team" *ngIf="display === 'team-builder'">
         <div class="team-name">
             <input class="team-name-input" type="text" [placeholder]="input_placeholder" [(ngModel)]="teams[current_team].name">
             <button class="cartooney-button" [disabled]="!teams[current_team].name.length" (click)="save_team()">Save!</button>
         </div>
         <div class="team-members">
             <div class="member" *ngFor="let team_member of teams[current_team].members">
-                <img class="robot-avatar" [src]="team_member.avatar">
+                <img class="robot-avatar" [src]="team_member.avatar_base64">
                 <span class="robot-name">{{team_member.name}}</span>
-
+            </div>
+        </div>
+    </div>
+    
+    <div class="danceoff" *ngIf="display === 'animation'">
+        <div class="dancers">
+            <ng-container *ngFor="let dancer of current_danceoff?.dancers; last as last">
+                <div class="dancer" @danceoff
+                [class.winner]="(show_winner && dancer.id === current_danceoff.winner)" 
+                *ngIf="!show_winner || (show_winner && dancer.id === current_danceoff.winner)">
+                    <img class="robot-avatar" [src]="dancer?.avatar_base64">
+                    <span class="robot-name">{{dancer?.name}}</span>
+                    <span class="robot-name" *ngIf="(show_winner && dancer.id === current_danceoff.winner)">Won doing the "{{dancer?.powermove}}"</span>
+                </div>
+                
+                <span class="VS" *ngIf="!last && !show_winner">VS</span>
+            </ng-container>
+            
+        </div>
+    </div>
+    
+    <div class="winner-team"  *ngIf="display === 'winner'">
+        <div class="team-name">
+            <h3 class="winners">Winners!</h3>
+        </div>
+        <div class="team-members">
+            <div class="member" *ngFor="let team_member of competition_result?.winner?.members">
+                <img class="robot-avatar" [src]="team_member.avatar_base64">
+                <span class="robot-name">{{team_member.name}}</span>
             </div>
         </div>
     </div>

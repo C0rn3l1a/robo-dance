@@ -1,9 +1,5 @@
-$space-black: rgb(46, 20, 68);
-$glass-black: rgba(255, 255, 255, 0.15);
-$glass-white: rgba(255, 255, 255, 0.4);
-
 .background-spacey {
-    background-color: $space-black;
+    background-color: var(--space-black);
     height: 100%;
     width: 100%;
     position: relative;
@@ -31,8 +27,15 @@ $glass-white: rgba(255, 255, 255, 0.4);
     max-height: 800px;
     
     // glass
-    background: $glass-black;
+    background: var(--glass-black);
     border-radius: 0.5rem;
     backdrop-filter: blur(3px);
-    box-shadow: 0 -2px 0 0 $glass-white;
+    box-shadow: 0 -2px 0 0 var(--glass-white);
+
+    .home-button {
+        position: absolute;
+        top: .4rem;
+        left: .4rem;
+        margin: 0;
+    }
 }

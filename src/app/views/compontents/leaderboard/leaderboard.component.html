@@ -1,0 +1,21 @@
+<div class="leaderboard-container">
+    <div class="message-area">
+        <p>{{message}}</p>
+    </div>
+    <div class="divider"></div>
+
+    <div class="loading" *ngIf="display === 'loading'">
+        <img src="https://i.imgur.com/h9a32pC.gif">
+    </div>
+
+    <div class="robot header">
+        <span>Name</span>
+        <span>Wins</span>
+    </div>
+    <div class="robot-list" *ngIf="display === 'list'">
+        <div class="robot" *ngFor="let item of leader_board">
+            <span>{{item.robot.name}}</span>
+            <span>{{item.score}}</span>
+        </div>
+    </div>
+</div>

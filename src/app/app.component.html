@@ -2,6 +2,11 @@
 <div class="background-spacey">
     <div class="star" [ngStyle]="star" *ngFor="let star of stars"></div>
     <div class="main-box">
+        <button class="cartooney-button home-button" [routerLink]="['/']" *ngIf="show_home_button">
+            <span class="material-icons">
+            arrow_back
+            </span>
+        </button>
         <router-outlet></router-outlet>
     </div>
 </div>

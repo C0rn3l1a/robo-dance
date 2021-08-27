@@ -29,8 +29,8 @@ export class RobotService {
     )
   }
   
-  get_one(id: string) {
-    return this._http_client.get(`${this.URL}/${id}`).pipe(
+  get_one(id: number) {
+    return this._http_client.get<RobotParams>(`${this.URL}/${id}`).pipe(
       first(),
       catchError(error => this._error_handler.handle(error))
     )

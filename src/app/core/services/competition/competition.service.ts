@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { catchError, first, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Competition } from '../../models/competition/competition.class';
@@ -23,7 +24,7 @@ export class CompetitionService {
     private _error_handler: ErrorService,
   ) { }
 
-  start_competition(teams: Team[]) {
+  start_competition(teams: Team[]): Observable<Competition|null> {
     // Create competition
     this.current_competition = new Competition({ teams });
     // Determine competition outcome

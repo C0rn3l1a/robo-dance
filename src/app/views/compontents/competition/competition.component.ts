@@ -54,7 +54,6 @@ export class CompetitionComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = 'We are building 2 awesome teams!';
-    // TODO: handle error cases
     this._robot_service.get_all().subscribe(async robots => {
       if (robots !== null) {
         this.robot_list = robots.filter(robot => !robot.outOfOrder);
